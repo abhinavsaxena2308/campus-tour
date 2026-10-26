@@ -1,0 +1,22 @@
+{
+  "units": "meters",
+  "axis": "game.x = cad.x - originX; game.y = cad.z - originZ; game.z = -(cad.y - originY)",
+  "originX": 506.0834290368948,
+  "originY": 503.5599563305732,
+  "originZ": 240.26948547364125,
+  "terrain": {
+    "minX": -506.0834290368948,
+    "maxX": 506.0834290368948,
+    "minZ": -503.5599563305732,
+    "maxZ": 503.5599563305732,
+    "maxY": 15.504699707022581
+  },
+  "counts": {
+    "buildingMeshes": 714,
+    "buildingFootprints": 717,
+    "roadSurfaces": 279,
+    "roadCenterlines": 279,
+    "trees": 6215,
+    "treeTypes": 192
+  }
+}

@@ -2,12 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>campus-tour</title>
+    <title>Campus Tour</title>
+    <style>
+      html, body { margin: 0; height: 100%; overflow: hidden; background: #0f1215; font-family: system-ui, sans-serif; }
+      canvas { display: block; }
+      #loading {
+        position: fixed; inset: 0; display: grid; place-items: center; align-content: center; gap: 14px;
+        background: #0f1215; color: #dfe6ec; z-index: 10; transition: opacity .4s;
+      }
+      #loading.done { opacity: 0; pointer-events: none; }
+      #loading .bar { width: min(320px, 70vw); height: 6px; background: #26303a; border-radius: 3px; overflow: hidden; }
+      #loading .bar > i { display: block; height: 100%; width: 0%; background: #6cc070; transition: width .2s; }
+      #loading .err { color: #ff8a80; max-width: 520px; text-align: center; white-space: pre-wrap; }
+      #hud {
+        position: fixed; left: 12px; top: 12px; padding: 10px 12px; border-radius: 8px; z-index: 5;
+        background: rgba(15, 18, 21, .72); color: #dfe6ec; font: 12px/1.5 ui-monospace, Consolas, monospace;
+        pointer-events: none; white-space: pre;
+      }
+      #hint {
+        position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 5;
+        padding: 8px 14px; border-radius: 20px; background: rgba(15, 18, 21, .72); color: #dfe6ec; font-size: 13px;
+        pointer-events: none; transition: opacity .3s;
+      }
+      #hint.hidden { opacity: 0; }
+    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="loading">
+      <div id="loadingText">Loading campus…</div>
+      <div class="bar"><i id="loadingBar"></i></div>
+    </div>
+    <div id="hud"></div>
+    <div id="hint">Click to look around</div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
